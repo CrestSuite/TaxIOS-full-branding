@@ -1,0 +1,29 @@
+TAXiOS SUITEDASH THEME V2 — INSTALL
+
+1) Upload this project to GitHub.
+2) Deploy that GitHub repository to Netlify.
+3) In SuiteDash:
+   Flyout Menu > Platform Branding > Advanced > Custom JS
+4) Paste the code below and replace YOUR-SITE:
+
+(function (d) {
+  if (d.getElementById("taxios-netlify-loader")) return;
+
+  var s = d.createElement("script");
+  s.id = "taxios-netlify-loader";
+  s.src = "https://YOUR-SITE.netlify.app/assets/taxios-theme.js?v=2.0.0";
+  s.defer = true;
+  d.head.appendChild(s);
+})(document);
+
+LOGIN PAGE:
+Paste assets/taxios-login.css into the separate Custom Login CSS area.
+
+FORMS:
+Paste assets/taxios-forms.css into each Form's Custom CSS / Form Theme area.
+
+ROLLBACK:
+window.TAXIOS_THEME && window.TAXIOS_THEME.disable();
+
+RESCAN BLOCKS:
+window.TAXIOS_THEME && window.TAXIOS_THEME.rescan();

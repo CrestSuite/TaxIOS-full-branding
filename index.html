@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" class="taxios-theme">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0D0D0F">
+  <title>TAXiOS SuiteDash Theme V2 — All Blocks Preview</title>
+  <link rel="stylesheet" href="/assets/taxios-theme.css">
+  <link rel="stylesheet" href="/assets/taxios-blocks.css">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .preview-shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+    .sidebar-nav{padding:28px 18px}
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+    .brand img{width:62px;height:62px;object-fit:cover;border-radius:50%}
+    .nav-link{display:block;padding:12px 14px;margin:5px 0;text-decoration:none}
+    .main{padding:28px}
+    .topbar{padding:16px 20px;border-radius:14px;margin-bottom:22px}
+    .block-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card-block{padding:20px;min-height:190px}
+    .span2{grid-column:span 2}
+    .stat{font-size:30px;font-weight:800;margin:8px 0}
+    .btn{display:inline-block;padding:11px 15px;text-decoration:none;border:none;cursor:pointer}
+    .form-control{width:100%;padding:11px 12px;margin-top:7px}
+    table{width:100%;border-collapse:collapse;margin-top:14px}
+    th,td{padding:10px;text-align:left}
+    .dropzone{padding:28px;text-align:center}
+    .progress{height:14px;border-radius:99px;overflow:hidden;margin-top:18px}
+    .progress-bar{height:100%;width:72%}
+    .mini-list{padding:0;margin:12px 0 0;list-style:none}
+    .mini-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    @media(max-width:980px){.block-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.span2{grid-column:span 2}}
+    @media(max-width:760px){.preview-shell{grid-template-columns:1fr}.sidebar-nav{display:none}.block-grid{grid-template-columns:1fr}.span2{grid-column:auto}.main{padding:16px}}
+  </style>
+</head>
+<body>
+<div class="preview-shell">
+  <aside class="sidebar-nav">
+    <div class="brand"><img src="/assets/taxios-logo.png" alt="TAXiOS"><strong>TAXiOS</strong></div>
+    <a class="nav-link active" href="#">Dashboard</a>
+    <a class="nav-link" href="#">CRM</a>
+    <a class="nav-link" href="#">Projects</a>
+    <a class="nav-link" href="#">Documents</a>
+    <a class="nav-link" href="#">Messages</a>
+    <a class="nav-link" href="#">Settings</a>
+  </aside>
+
+  <main class="main">
+    <div class="topbar"><strong>TAXiOS Command Center · SuiteDash Theme V2</strong></div>
+    <h1>All Blocks Preview</h1>
+    <p class="text-muted">Examples of the universal SuiteDash Dashboard and Portal Page block system.</p>
+
+    <section class="block-grid">
+      <article class="card-block taxios-ui-block" data-taxios-kind="welcome">
+        <h2>Welcome Block</h2><p>Premium black, purple, silver and orange branding.</p>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="reporting">
+        <small class="text-muted">Reporting Block</small><div class="stat">$84,920</div><span class="badge-primary" style="padding:5px 9px;border-radius:99px">+18.2%</span>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="invoice">
+        <h3>My Invoices</h3><ul class="mini-list"><li>INV-1204 · $1,250</li><li>INV-1205 · $880</li><li>INV-1206 · $2,400</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="task">
+        <h3>My Tasks</h3><ul class="mini-list"><li><input type="checkbox"> Review return</li><li><input type="checkbox"> Request documents</li><li><input type="checkbox"> Compliance check</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="schedule">
+        <h3>My Schedule</h3><ul class="mini-list"><li>9:00 AM · Client Call</li><li>11:30 AM · Tax Review</li><li>3:00 PM · Team Meeting</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="project">
+        <h3>Projects Block</h3><p>2026 Tax Season Setup</p><div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="announcement">
+        <h3>Announcements</h3><small class="dashboard-anns__date">August 15</small><p>New compliance resources are available.</p>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="activity">
+        <h3>Activity Stream</h3><ul class="mini-list"><li>Client uploaded W-2</li><li>Task completed</li><li>Invoice paid</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="upload">
+        <h3>Upload Block</h3><div class="dropzone">Drop documents here</div>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="download">
+        <h3>Download Block</h3><p>Client tax resources</p><button class="btn btn-secondary">Download Files</button>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="crm-filter">
+        <h3>CRM Filter Block</h3><ul class="mini-list"><li>Jordan Reed · Client</li><li>Taylor Brooks · Lead</li><li>Alex Morgan · Client</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="staff-filter">
+        <h3>Staff Filter Block</h3><ul class="mini-list"><li>A. Carter · Preparer</li><li>M. Ellis · Reviewer</li><li>D. Brown · Admin</li></ul>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="progress">
+        <h3>Progress Bar</h3><p>Tax Season Readiness</p><div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="appointment">
+        <h3>Appointment Block</h3><button class="btn btn-primary">Schedule Appointment</button>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="form">
+        <h3>Custom Fields / Form</h3><input class="form-control" placeholder="Client name"><select class="form-control"><option>New Lead</option></select>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="button">
+        <h3>Button Block</h3><button class="btn btn-primary">Open Command Center</button>
+      </article>
+
+      <article class="card-block taxios-ui-block span2" data-taxios-kind="media">
+        <h3>Image / Video / iFrame / Embed Block</h3><p>Embedded content receives a matching branded frame without recoloring the external content.</p>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="portal">
+        <h3>Portal Page Block</h3><a href="#">Open Client Resources →</a>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="circle">
+        <h3>Circle Access Block</h3><a href="#">Tax Preparers Circle →</a>
+      </article>
+
+      <article class="card-block taxios-ui-block span2" data-taxios-kind="generic">
+        <h3>Universal Table Block</h3>
+        <table class="table"><thead><tr><th>Client</th><th>Service</th><th>Status</th></tr></thead>
+        <tbody><tr><td>Jordan Reed</td><td>Tax Return</td><td>Review</td></tr><tr><td>Taylor Brooks</td><td>Compliance</td><td>Ready</td></tr></tbody></table>
+      </article>
+
+      <article class="card-block taxios-ui-block" data-taxios-kind="separator">
+        <div style="height:120px"></div>
+      </article>
+    </section>
+  </main>
+</div>
+</body>
+</html>
