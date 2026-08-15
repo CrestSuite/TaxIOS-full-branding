@@ -1,0 +1,1099 @@
+/* =========================================================
+   TAXiOS x SuiteDash — Full Platform Brand Theme
+   Hosted with GitHub + Netlify
+   Version: 2.0.1
+   ---------------------------------------------------------
+   Brand palette
+   Black:  #0D0D0F
+   Panel:  #15151A
+   Purple: #8B1BF2
+   Purple2:#B026FF
+   Orange: #FF6A00
+   Silver: #94979F
+   White:  #F7F8FB
+   ========================================================= */
+
+/* SAFETY:
+   All rules are scoped to html.taxios-theme.
+   Remove that class or disable Custom JS in SuiteDash to revert.
+*/
+
+html.taxios-theme {
+  --taxios-bg: #0D0D0F;
+  --taxios-bg-2: #111116;
+  --taxios-panel: #15151A;
+  --taxios-panel-2: #1C1C23;
+  --taxios-panel-3: #24242D;
+  --taxios-purple: #8B1BF2;
+  --taxios-purple-bright: #B026FF;
+  --taxios-orange: #FF6A00;
+  --taxios-orange-soft: #FF8A35;
+  --taxios-silver: #94979F;
+  --taxios-text: #F7F8FB;
+  --taxios-muted: #B9BBC3;
+  --taxios-border: rgba(255,255,255,.10);
+  --taxios-border-strong: rgba(176,38,255,.34);
+  --taxios-shadow: 0 16px 46px rgba(0,0,0,.32);
+  --taxios-glow-purple: 0 0 0 1px rgba(176,38,255,.45), 0 0 28px rgba(139,27,242,.23);
+  --taxios-glow-orange: 0 0 0 1px rgba(255,106,0,.48), 0 0 28px rgba(255,106,0,.18);
+  --taxios-radius-sm: 8px;
+  --taxios-radius: 12px;
+  --taxios-radius-lg: 18px;
+  --taxios-transition: 180ms ease;
+  --taxios-gradient: linear-gradient(135deg, #6E14D8 0%, #9D20FF 52%, #B026FF 100%);
+  --taxios-gradient-hot: linear-gradient(135deg, #7D18E6 0%, #AE22FF 55%, #FF6A00 145%);
+  --taxios-nav-gradient: linear-gradient(180deg, #09090B 0%, #111116 60%, #151019 100%);
+  color-scheme: dark;
+}
+
+/* ---------- FOUNDATION ---------- */
+html.taxios-theme,
+html.taxios-theme body {
+  background: var(--taxios-bg) !important;
+  color: var(--taxios-text) !important;
+}
+
+html.taxios-theme body {
+  background-image:
+    radial-gradient(circle at 85% -10%, rgba(139,27,242,.10), transparent 32%),
+    radial-gradient(circle at 5% 100%, rgba(255,106,0,.055), transparent 28%) !important;
+  background-attachment: fixed !important;
+}
+
+html.taxios-theme body,
+html.taxios-theme button,
+html.taxios-theme input,
+html.taxios-theme select,
+html.taxios-theme textarea {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html.taxios-theme ::selection {
+  background: rgba(176,38,255,.45);
+  color: #fff;
+}
+
+html.taxios-theme a {
+  color: #C66BFF;
+  transition: color var(--taxios-transition), opacity var(--taxios-transition);
+}
+
+html.taxios-theme a:hover,
+html.taxios-theme a:focus {
+  color: var(--taxios-orange-soft);
+}
+
+/* ---------- MAIN LAYOUT / APP SHELL ---------- */
+html.taxios-theme :is(
+  .main-content,
+  .content-wrapper,
+  .page-content,
+  .app-content,
+  .container-fluid
+) {
+  color: var(--taxios-text);
+}
+
+/* Official SuiteDash sidebar selector + common fallbacks */
+html.taxios-theme :is(
+  .sidebar-nav,
+  .sidebar,
+  .side-nav,
+  .sidenav,
+  aside[class*="sidebar"]
+) {
+  background: var(--taxios-nav-gradient) !important;
+  border-right: 1px solid var(--taxios-border) !important;
+  box-shadow: 16px 0 46px rgba(0,0,0,.20) !important;
+}
+
+/* Purple/orange accent rail */
+html.taxios-theme :is(.sidebar-nav, .sidebar, .side-nav, .sidenav) {
+  position: relative;
+}
+
+html.taxios-theme :is(.sidebar-nav, .sidebar, .side-nav, .sidenav)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(176,38,255,.72) 22%,
+    rgba(139,27,242,.42) 64%,
+    rgba(255,106,0,.75) 100%
+  );
+}
+
+/* ---------- NAVIGATION ---------- */
+html.taxios-theme :is(
+  .sidebar-nav a,
+  .sidebar a,
+  .side-nav a,
+  .sidenav a,
+  .nav-link
+) {
+  color: #D5D6DD !important;
+  border-radius: 10px;
+  transition:
+    background var(--taxios-transition),
+    color var(--taxios-transition),
+    box-shadow var(--taxios-transition),
+    transform var(--taxios-transition);
+}
+
+html.taxios-theme :is(
+  .sidebar-nav a:hover,
+  .sidebar a:hover,
+  .side-nav a:hover,
+  .sidenav a:hover,
+  .nav-link:hover
+) {
+  color: #fff !important;
+  background: rgba(139,27,242,.13) !important;
+}
+
+html.taxios-theme :is(
+  .sidebar-nav .active > a,
+  .sidebar-nav a.active,
+  .sidebar .active > a,
+  .sidebar a.active,
+  .side-nav .active > a,
+  .sidenav .active > a,
+  .nav-link.active
+) {
+  color: #fff !important;
+  background: linear-gradient(90deg, rgba(139,27,242,.24), rgba(176,38,255,.08)) !important;
+  box-shadow: inset 3px 0 0 var(--taxios-purple-bright);
+}
+
+html.taxios-theme :is(
+  .sidebar-nav i,
+  .sidebar-nav svg,
+  .sidebar i,
+  .sidebar svg,
+  .nav-link i,
+  .nav-link svg
+) {
+  color: #C768FF !important;
+  fill: currentColor;
+}
+
+/* Top header / app bar */
+html.taxios-theme :is(
+  header,
+  .topbar,
+  .top-nav,
+  .navbar,
+  .navbar-default,
+  .header-navbar
+) {
+  background: rgba(13,13,15,.94) !important;
+  color: var(--taxios-text) !important;
+  border-color: var(--taxios-border) !important;
+  border-top: 0 !important;
+  border-top-width: 0 !important;
+  backdrop-filter: blur(14px);
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+html.taxios-theme :is(h1,h2,h3,h4,h5,h6,.page-title,.card-title,.modal-title) {
+  color: var(--taxios-text) !important;
+}
+
+html.taxios-theme :is(
+  p,
+  .text-muted,
+  small,
+  .help-block,
+  .form-text,
+  .description,
+  .subtitle
+) {
+  color: var(--taxios-muted) !important;
+}
+
+/* ---------- CARDS / PANELS / WIDGETS ---------- */
+html.taxios-theme :is(
+  .card,
+  .panel,
+  .widget,
+  .well,
+  .box,
+  .content-card,
+  .dashboard-card,
+  .list-group-item
+) {
+  background: linear-gradient(180deg, rgba(28,28,35,.97), rgba(21,21,26,.97)) !important;
+  color: var(--taxios-text) !important;
+  border: 1px solid var(--taxios-border) !important;
+  border-radius: var(--taxios-radius) !important;
+  box-shadow: var(--taxios-shadow);
+}
+
+html.taxios-theme :is(.card,.panel,.widget,.box):hover {
+  border-color: rgba(176,38,255,.28) !important;
+}
+
+html.taxios-theme :is(
+  .card-header,
+  .panel-heading,
+  .box-header,
+  .widget-header
+) {
+  color: var(--taxios-text) !important;
+  background: rgba(255,255,255,.018) !important;
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme :is(
+  .card-footer,
+  .panel-footer,
+  .box-footer
+) {
+  background: rgba(0,0,0,.14) !important;
+  border-color: var(--taxios-border) !important;
+}
+
+/* ---------- BUTTONS ---------- */
+html.taxios-theme :is(
+  .btn-primary,
+  button.btn-primary,
+  input[type="submit"].btn-primary,
+  input[type="button"].btn-primary
+) {
+  color: #fff !important;
+  background: var(--taxios-gradient) !important;
+  border: 1px solid rgba(176,38,255,.58) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 22px rgba(139,27,242,.18) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  transition:
+    transform var(--taxios-transition),
+    box-shadow var(--taxios-transition),
+    filter var(--taxios-transition);
+}
+
+html.taxios-theme :is(
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active
+) {
+  color: #fff !important;
+  background: var(--taxios-gradient-hot) !important;
+  box-shadow: var(--taxios-glow-purple) !important;
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+html.taxios-theme :is(
+  .btn-secondary,
+  .btn-default,
+  .btn-outline-secondary,
+  .btn-light
+) {
+  color: #F1F2F5 !important;
+  background: #24242D !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 10px !important;
+}
+
+html.taxios-theme :is(
+  .btn-secondary:hover,
+  .btn-default:hover,
+  .btn-outline-secondary:hover,
+  .btn-light:hover
+) {
+  color: #fff !important;
+  border-color: rgba(255,106,0,.62) !important;
+  box-shadow: var(--taxios-glow-orange) !important;
+  background: #2A2525 !important;
+}
+
+/* Keep destructive actions clearly destructive */
+html.taxios-theme :is(.btn-danger,.alert-danger,.badge-danger,.bg-danger) {
+  --bs-danger: #D84A5A;
+}
+
+/* ---------- FORMS ---------- */
+html.taxios-theme :is(
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  textarea,
+  .form-control,
+  .form-select
+) {
+  color: var(--taxios-text) !important;
+  background: #121218 !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 9px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+html.taxios-theme :is(
+  input,
+  select,
+  textarea,
+  .form-control,
+  .form-select
+)::placeholder {
+  color: #747680 !important;
+  opacity: 1;
+}
+
+html.taxios-theme :is(
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  textarea,
+  .form-control,
+  .form-select
+):focus {
+  color: #fff !important;
+  background: #15151D !important;
+  border-color: var(--taxios-purple-bright) !important;
+  outline: none !important;
+  box-shadow: var(--taxios-glow-purple) !important;
+}
+
+html.taxios-theme label,
+html.taxios-theme .control-label,
+html.taxios-theme .form-label {
+  color: #E5E6EB !important;
+}
+
+html.taxios-theme :is(
+  input[type="checkbox"],
+  input[type="radio"]
+) {
+  accent-color: var(--taxios-purple-bright);
+}
+
+/* ---------- TABLES ---------- */
+html.taxios-theme :is(table,.table) {
+  color: #E9EAF0 !important;
+  border-color: var(--taxios-border) !important;
+  background: transparent !important;
+}
+
+html.taxios-theme :is(table,.table) thead th {
+  color: #fff !important;
+  background: #1C1C23 !important;
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme :is(table,.table) tbody td {
+  border-color: rgba(255,255,255,.075) !important;
+}
+
+html.taxios-theme :is(table,.table) tbody tr {
+  background: transparent !important;
+}
+
+html.taxios-theme :is(table,.table) tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.018) !important;
+}
+
+html.taxios-theme :is(table,.table) tbody tr:hover {
+  background: rgba(139,27,242,.075) !important;
+}
+
+/* ---------- MODALS / DROPDOWNS / POPOVERS ---------- */
+html.taxios-theme :is(
+  .modal-content,
+  .dropdown-menu,
+  .popover,
+  .offcanvas,
+  .drawer,
+  [role="dialog"]
+) {
+  color: var(--taxios-text) !important;
+  background: #17171D !important;
+  border: 1px solid rgba(176,38,255,.22) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.48) !important;
+}
+
+html.taxios-theme :is(.modal-header,.modal-footer) {
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme :is(
+  .dropdown-item,
+  .dropdown-menu a,
+  [role="menuitem"]
+) {
+  color: #D9DAE0 !important;
+}
+
+html.taxios-theme :is(
+  .dropdown-item:hover,
+  .dropdown-menu a:hover,
+  [role="menuitem"]:hover
+) {
+  color: #fff !important;
+  background: rgba(139,27,242,.14) !important;
+}
+
+/* ---------- TABS ---------- */
+html.taxios-theme :is(.nav-tabs,.tabs) {
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme :is(.nav-tabs .nav-link,.tabs a) {
+  color: #BABCC5 !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+html.taxios-theme :is(.nav-tabs .nav-link.active,.tabs a.active) {
+  color: #fff !important;
+  border-color: transparent transparent var(--taxios-purple-bright) !important;
+  background: rgba(139,27,242,.08) !important;
+  box-shadow: inset 0 -2px 0 var(--taxios-purple-bright);
+}
+
+/* ---------- BADGES / STATUS ---------- */
+html.taxios-theme :is(.badge-primary,.bg-primary,.label-primary) {
+  color: #fff !important;
+  background: var(--taxios-gradient) !important;
+}
+
+html.taxios-theme :is(.badge-secondary,.bg-secondary,.label-default) {
+  color: #E3E4E8 !important;
+  background: #30303A !important;
+}
+
+/* ---------- PAGINATION ---------- */
+html.taxios-theme .pagination :is(a,.page-link) {
+  color: #D9DAE0 !important;
+  background: #18181F !important;
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme .pagination :is(.active a,.active .page-link) {
+  color: #fff !important;
+  background: var(--taxios-gradient) !important;
+  border-color: var(--taxios-purple-bright) !important;
+}
+
+/* ---------- PROGRESS ---------- */
+html.taxios-theme :is(.progress,.progress-bar-container) {
+  background: #24242D !important;
+}
+
+html.taxios-theme .progress-bar {
+  background: var(--taxios-gradient-hot) !important;
+}
+
+/* ---------- ALERTS ---------- */
+html.taxios-theme :is(.alert-info,.alert-primary) {
+  color: #F2E8FF !important;
+  background: rgba(139,27,242,.12) !important;
+  border-color: rgba(176,38,255,.28) !important;
+}
+
+html.taxios-theme .alert-warning {
+  color: #FFE9D3 !important;
+  background: rgba(255,106,0,.10) !important;
+  border-color: rgba(255,106,0,.32) !important;
+}
+
+/* ---------- BREADCRUMBS ---------- */
+html.taxios-theme .breadcrumb {
+  background: transparent !important;
+}
+
+html.taxios-theme .breadcrumb :is(a,.breadcrumb-item) {
+  color: #B7B8C0 !important;
+}
+
+html.taxios-theme .breadcrumb .active {
+  color: #fff !important;
+}
+
+/* ---------- CALENDAR / SCHEDULER COMMON ---------- */
+html.taxios-theme :is(
+  .fc,
+  .calendar,
+  .scheduler
+) {
+  color: var(--taxios-text) !important;
+}
+
+html.taxios-theme :is(
+  .fc .fc-scrollgrid,
+  .fc-theme-standard td,
+  .fc-theme-standard th
+) {
+  border-color: var(--taxios-border) !important;
+}
+
+html.taxios-theme :is(
+  .fc .fc-col-header-cell,
+  .fc .fc-daygrid-day
+) {
+  background: #17171D !important;
+}
+
+/* ---------- TOOLTIP ---------- */
+html.taxios-theme :is(.tooltip-inner,[role="tooltip"]) {
+  color: #fff !important;
+  background: #251332 !important;
+  border: 1px solid rgba(176,38,255,.30);
+}
+
+/* ---------- SCROLLBARS ---------- */
+html.taxios-theme * {
+  scrollbar-color: #6F1BB2 #121218;
+  scrollbar-width: thin;
+}
+
+html.taxios-theme *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.taxios-theme *::-webkit-scrollbar-track {
+  background: #121218;
+}
+
+html.taxios-theme *::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6B19B7, #9D20FF);
+  border: 2px solid #121218;
+  border-radius: 999px;
+}
+
+/* ---------- SUITEDASH HELP FOOTER ---------- */
+/* Optional: uncomment to hide SuiteDash "Ask!" help area.
+html.taxios-theme .sd-get-help {
+  display: none !important;
+}
+*/
+
+/* ---------- DARK MODE SWITCH ---------- */
+/* Optional: uncomment if you want TAXiOS to force one consistent theme.
+html.taxios-theme .dark-mode-switch {
+  display: none !important;
+}
+*/
+
+/* ---------- MICRO-INTERACTIONS ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html.taxios-theme :is(.card,.panel,.widget,.box,.btn,.nav-link) {
+    transition:
+      transform var(--taxios-transition),
+      box-shadow var(--taxios-transition),
+      border-color var(--taxios-transition),
+      background var(--taxios-transition),
+      color var(--taxios-transition);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 767px) {
+  html.taxios-theme :is(.card,.panel,.widget,.box) {
+    border-radius: 10px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.22);
+  }
+
+  html.taxios-theme :is(
+    .btn,
+    button,
+    input[type="submit"],
+    input[type="button"]
+  ) {
+    min-height: 40px;
+  }
+
+  html.taxios-theme :is(
+    .sidebar-nav,
+    .sidebar,
+    .side-nav,
+    .sidenav
+  ) {
+    box-shadow: 18px 0 52px rgba(0,0,0,.42) !important;
+  }
+}
+
+/* ---------- PRINT ---------- */
+@media print {
+  html.taxios-theme,
+  html.taxios-theme body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  html.taxios-theme :is(.card,.panel,.widget,.box) {
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}
+
+/* =========================================================
+   V2 — SUITEDASH SHELL FIXES
+   These selectors cover additional SuiteDash page wrappers,
+   editor surfaces, menus, drawers, accordions, data controls,
+   and framework components that can otherwise remain white.
+   ========================================================= */
+
+html.taxios-theme :is(
+  #app,
+  #content,
+  .app,
+  .wrapper,
+  .page-wrapper,
+  .main-wrapper,
+  .main-panel,
+  .main-content,
+  .content,
+  .content-area,
+  .content-wrapper,
+  .page-content,
+  .app-content,
+  .dashboard,
+  .dashboard-wrapper,
+  .portal-page,
+  .portal-page-content
+) {
+  color: var(--taxios-text) !important;
+  border-color: var(--taxios-border);
+}
+
+html.taxios-theme :is(
+  .panel-body,
+  .card-body,
+  .box-body,
+  .widget-body,
+  .tab-content,
+  .accordion-body,
+  .collapse,
+  .list-group
+) {
+  color: var(--taxios-text);
+  border-color: var(--taxios-border) !important;
+}
+
+/* SuiteDash wide/action buttons referenced by SuiteDash's own CSS docs */
+html.taxios-theme :is(
+  .sd-btn-wide-primary-add-36px,
+  .sd-btn-wide-primary-24px,
+  .sd-btn-wide-action-24px,
+  .sd-nav-bar-add-button
+) {
+  color: #fff !important;
+  background: var(--taxios-gradient) !important;
+  border: 1px solid rgba(176,38,255,.58) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 22px rgba(139,27,242,.18) !important;
+}
+
+html.taxios-theme :is(
+  .sd-btn-wide-primary-add-36px,
+  .sd-btn-wide-primary-24px,
+  .sd-btn-wide-action-24px,
+  .sd-nav-bar-add-button
+):hover {
+  background: var(--taxios-gradient-hot) !important;
+  box-shadow: var(--taxios-glow-purple) !important;
+}
+
+/* Category / type pills */
+html.taxios-theme :is(.category-pill,.crm-category-pill) {
+  color: #F2E8FF !important;
+  background: rgba(139,27,242,.15) !important;
+  border: 1px solid rgba(176,38,255,.28) !important;
+  border-radius: 999px !important;
+  text-transform: none !important;
+}
+
+/* Announcement metadata */
+html.taxios-theme .dashboard-anns__date {
+  color: var(--taxios-silver) !important;
+}
+
+/* Accordions */
+html.taxios-theme :is(.accordion-item,.accordion) {
+  background: transparent !important;
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme .accordion-button {
+  color: #F7F8FB !important;
+  background: #1B1B22 !important;
+  border-color: var(--taxios-border) !important;
+  box-shadow: none !important;
+}
+html.taxios-theme .accordion-button:not(.collapsed) {
+  color: #fff !important;
+  background: rgba(139,27,242,.15) !important;
+  box-shadow: inset 3px 0 0 var(--taxios-purple-bright) !important;
+}
+
+/* Input groups */
+html.taxios-theme .input-group-text {
+  color: #D8DAE1 !important;
+  background: #22222A !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+/* Select2 / Chosen / bootstrap-select */
+html.taxios-theme :is(
+  .select2-container--default .select2-selection--single,
+  .select2-container--default .select2-selection--multiple,
+  .chosen-container .chosen-single,
+  .chosen-container-multi .chosen-choices,
+  .bootstrap-select > .dropdown-toggle
+) {
+  color: var(--taxios-text) !important;
+  background: #121218 !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+html.taxios-theme :is(
+  .select2-dropdown,
+  .chosen-container .chosen-drop
+) {
+  color: var(--taxios-text) !important;
+  background: #17171D !important;
+  border-color: rgba(176,38,255,.24) !important;
+}
+html.taxios-theme :is(
+  .select2-results__option,
+  .chosen-container .chosen-results li
+) {
+  color: #D9DAE0 !important;
+}
+html.taxios-theme :is(
+  .select2-results__option--highlighted,
+  .chosen-container .chosen-results li.highlighted
+) {
+  color: #fff !important;
+  background: rgba(139,27,242,.20) !important;
+}
+
+/* Date/time pickers */
+html.taxios-theme :is(
+  .datepicker,
+  .daterangepicker,
+  .datetimepicker,
+  .timepicker,
+  .ui-datepicker
+) {
+  color: var(--taxios-text) !important;
+  background: #17171D !important;
+  border-color: rgba(176,38,255,.24) !important;
+  box-shadow: 0 20px 55px rgba(0,0,0,.42) !important;
+}
+html.taxios-theme :is(
+  .datepicker td,
+  .datepicker th,
+  .daterangepicker td,
+  .daterangepicker th,
+  .ui-datepicker td,
+  .ui-datepicker th
+) {
+  color: #D9DAE0 !important;
+}
+html.taxios-theme :is(
+  .datepicker td.active,
+  .daterangepicker td.active,
+  .ui-datepicker .ui-state-active
+) {
+  color: #fff !important;
+  background: var(--taxios-gradient) !important;
+}
+
+/* DataTables */
+html.taxios-theme :is(
+  .dataTables_wrapper,
+  .dataTables_info,
+  .dataTables_length,
+  .dataTables_filter
+) {
+  color: var(--taxios-muted) !important;
+}
+html.taxios-theme :is(
+  .dataTables_wrapper input,
+  .dataTables_wrapper select
+) {
+  color: var(--taxios-text) !important;
+  background: #121218 !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* SweetAlert / common confirm dialogs */
+html.taxios-theme :is(
+  .swal2-popup,
+  .sweet-alert,
+  .bootbox .modal-content
+) {
+  color: var(--taxios-text) !important;
+  background: #17171D !important;
+  border: 1px solid rgba(176,38,255,.25) !important;
+}
+html.taxios-theme :is(.swal2-title,.swal2-html-container,.sweet-alert h2,.sweet-alert p) {
+  color: var(--taxios-text) !important;
+}
+
+/* Toasts */
+html.taxios-theme :is(
+  .toast,
+  .toast-container .toast,
+  .toastr,
+  #toast-container > div
+) {
+  color: #fff !important;
+  background: #1B1B22 !important;
+  border: 1px solid rgba(176,38,255,.24) !important;
+  box-shadow: 0 14px 40px rgba(0,0,0,.38) !important;
+}
+
+/* Dropzones / upload surfaces */
+html.taxios-theme :is(
+  .dropzone,
+  .file-dropzone,
+  .upload-zone,
+  [class*="drop-zone"],
+  [class*="dropzone"]
+) {
+  color: var(--taxios-muted) !important;
+  background: rgba(139,27,242,.055) !important;
+  border: 1px dashed rgba(176,38,255,.45) !important;
+  border-radius: 12px !important;
+}
+html.taxios-theme :is(
+  .dropzone:hover,
+  .file-dropzone:hover,
+  .upload-zone:hover
+) {
+  background: rgba(139,27,242,.09) !important;
+  border-color: rgba(255,106,0,.62) !important;
+}
+
+/* Kanban / pipelines */
+html.taxios-theme :is(
+  .kanban,
+  .kanban-board,
+  .kanban-column,
+  .pipeline,
+  .pipeline-board,
+  .pipeline-column,
+  [class*="kanban"],
+  [class*="pipeline-column"],
+  [class*="deal-stage"]
+) {
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme :is(
+  .kanban-column,
+  .pipeline-column,
+  [class*="kanban-column"],
+  [class*="pipeline-column"],
+  [class*="deal-stage"]
+) {
+  background: rgba(21,21,26,.88) !important;
+  border-radius: 12px !important;
+}
+html.taxios-theme :is(
+  .kanban-card,
+  .pipeline-card,
+  .deal-card,
+  [class*="kanban-card"],
+  [class*="pipeline-card"],
+  [class*="deal-card"]
+) {
+  color: var(--taxios-text) !important;
+  background: #1D1D25 !important;
+  border: 1px solid var(--taxios-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18) !important;
+}
+
+/* Chat / messages / tickets */
+html.taxios-theme :is(
+  .message,
+  .message-item,
+  .conversation-item,
+  .chat-message,
+  .ticket,
+  .ticket-item,
+  [class*="message-item"],
+  [class*="conversation-item"],
+  [class*="ticket-item"]
+) {
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme :is(
+  .message-bubble,
+  .chat-bubble,
+  [class*="message-bubble"],
+  [class*="chat-bubble"]
+) {
+  color: #ECECF1 !important;
+  background: #22222A !important;
+  border: 1px solid var(--taxios-border) !important;
+  border-radius: 14px !important;
+}
+
+/* Timeline / activity */
+html.taxios-theme :is(
+  .timeline,
+  .activity-stream,
+  [class*="timeline"],
+  [class*="activity-stream"]
+) {
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme :is(
+  .timeline-item,
+  .activity-item,
+  [class*="timeline-item"],
+  [class*="activity-item"]
+) {
+  color: var(--taxios-text) !important;
+  border-color: rgba(255,255,255,.08) !important;
+}
+
+/* Invoice / estimates / payment panels */
+html.taxios-theme :is(
+  .invoice,
+  .invoice-wrapper,
+  .estimate,
+  .payment-panel,
+  [class*="invoice-card"],
+  [class*="invoice-item"]
+) {
+  color: var(--taxios-text) !important;
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme .sdPayNow {
+  color: #fff !important;
+  background: linear-gradient(135deg,#FF6A00,#B026FF) !important;
+  border-color: rgba(255,106,0,.54) !important;
+  box-shadow: 0 8px 24px rgba(255,106,0,.14) !important;
+}
+
+/* File manager */
+html.taxios-theme :is(
+  .file-manager,
+  .file-list,
+  .folder-list,
+  .file-item,
+  .folder-item,
+  [class*="file-item"],
+  [class*="folder-item"]
+) {
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme :is(
+  .file-item,
+  .folder-item,
+  [class*="file-card"],
+  [class*="folder-card"]
+) {
+  color: var(--taxios-text) !important;
+  background: #1A1A21 !important;
+}
+
+/* WYSIWYG / rich text editor */
+html.taxios-theme :is(
+  .note-editor,
+  .tox-tinymce,
+  .cke,
+  .fr-box,
+  .ql-container,
+  .ql-toolbar
+) {
+  color: var(--taxios-text) !important;
+  background: #15151A !important;
+  border-color: var(--taxios-border) !important;
+}
+html.taxios-theme :is(
+  .note-toolbar,
+  .tox .tox-toolbar,
+  .tox .tox-toolbar__primary,
+  .cke_top,
+  .fr-toolbar,
+  .ql-toolbar
+) {
+  background: #202028 !important;
+  border-color: var(--taxios-border) !important;
+}
+
+/* Empty states */
+html.taxios-theme :is(
+  .empty-state,
+  .no-results,
+  .no-data,
+  [class*="empty-state"],
+  [class*="no-results"]
+) {
+  color: var(--taxios-muted) !important;
+  background: rgba(255,255,255,.018) !important;
+  border-color: var(--taxios-border) !important;
+}
+
+/* Editors / block toolbars — conservative styling */
+html.taxios-theme :is(
+  .block-toolbar,
+  .row-toolbar,
+  .block-editor-toolbar,
+  .content-block-toolbar,
+  [class*="block-toolbar"],
+  [class*="row-toolbar"]
+) {
+  color: #fff !important;
+  background: #202028 !important;
+  border-color: rgba(176,38,255,.24) !important;
+}
+
+/* Keep embedded external content itself untouched */
+html.taxios-theme iframe {
+  border-color: rgba(176,38,255,.24) !important;
+}
+
+
+/* =========================================================
+   V2.0.1 — NO TOP BORDER ON PRIMARY SUITEDASH SURFACES
+   Complements taxios-blocks.css and prevents the app shell/card
+   layer from painting a separate top edge above themed blocks.
+   ========================================================= */
+html.taxios-theme :is(
+  .card,
+  .panel,
+  .widget,
+  .box,
+  .content-card,
+  .dashboard-card,
+  .card-block,
+  .dashboard-block,
+  .content-block,
+  .sd-block,
+  .portal-block,
+  .taxios-ui-block
+):not([data-taxios-kind="separator"]) {
+  border-top: 0 !important;
+  border-top-width: 0 !important;
+  border-top-color: transparent !important;
+}
