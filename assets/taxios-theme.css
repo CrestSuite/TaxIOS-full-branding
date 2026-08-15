@@ -1,0 +1,979 @@
+/*
+  TAXiOS × SuiteDash Universal Theme
+  Modern / Minimal / Responsive / Light + Dark
+  Version: 3.0.0
+
+  IMPORTANT:
+  - Loaded by assets/taxios-loader.js
+  - Everything is scoped under html.taxios-theme to reduce collisions.
+  - No top gradient bar/accent is added.
+*/
+
+html.taxios-theme {
+  --tx-purple: #a51cff;
+  --tx-purple-2: #7f20ff;
+  --tx-magenta: #d13cff;
+  --tx-orange: #ff6a00;
+  --tx-orange-2: #ff8a2a;
+  --tx-silver: #b9bdc9;
+
+  --tx-radius-xs: 7px;
+  --tx-radius-sm: 10px;
+  --tx-radius-md: 14px;
+  --tx-radius-lg: 18px;
+  --tx-radius-xl: 22px;
+
+  --tx-space-1: 4px;
+  --tx-space-2: 8px;
+  --tx-space-3: 12px;
+  --tx-space-4: 16px;
+  --tx-space-5: 20px;
+  --tx-space-6: 24px;
+  --tx-space-7: 32px;
+
+  --tx-font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --tx-ease: cubic-bezier(.2,.8,.2,1);
+  --tx-fast: 150ms;
+  --tx-normal: 220ms;
+
+  /* dark defaults */
+  --tx-bg: #0b0c10;
+  --tx-bg-soft: #101117;
+  --tx-sidebar: #090a0e;
+  --tx-surface: #15161d;
+  --tx-surface-2: #191a22;
+  --tx-surface-3: #20212b;
+  --tx-hover: rgba(165, 28, 255, .10);
+  --tx-active: rgba(165, 28, 255, .16);
+  --tx-text: #f8f8fb;
+  --tx-text-2: #c3c6d1;
+  --tx-text-3: #8f94a3;
+  --tx-border: rgba(255,255,255,.08);
+  --tx-border-strong: rgba(255,255,255,.14);
+  --tx-input: #111219;
+  --tx-shadow: 0 12px 36px rgba(0,0,0,.22);
+  --tx-shadow-sm: 0 6px 20px rgba(0,0,0,.16);
+  --tx-focus: 0 0 0 3px rgba(165,28,255,.20);
+  --tx-overlay: rgba(3,4,8,.72);
+  --tx-gradient: linear-gradient(90deg, var(--tx-purple) 0%, var(--tx-magenta) 55%, var(--tx-orange) 100%);
+  color-scheme: dark;
+}
+
+/* Explicit dark */
+html.taxios-theme[data-taxios-mode="dark"] {
+  --tx-bg: #0b0c10;
+  --tx-bg-soft: #101117;
+  --tx-sidebar: #090a0e;
+  --tx-surface: #15161d;
+  --tx-surface-2: #191a22;
+  --tx-surface-3: #20212b;
+  --tx-hover: rgba(165, 28, 255, .10);
+  --tx-active: rgba(165, 28, 255, .16);
+  --tx-text: #f8f8fb;
+  --tx-text-2: #c3c6d1;
+  --tx-text-3: #8f94a3;
+  --tx-border: rgba(255,255,255,.08);
+  --tx-border-strong: rgba(255,255,255,.14);
+  --tx-input: #111219;
+  --tx-shadow: 0 12px 36px rgba(0,0,0,.22);
+  --tx-shadow-sm: 0 6px 20px rgba(0,0,0,.16);
+  --tx-overlay: rgba(3,4,8,.72);
+  color-scheme: dark;
+}
+
+/* Explicit light */
+html.taxios-theme[data-taxios-mode="light"] {
+  --tx-bg: #f5f6fa;
+  --tx-bg-soft: #eef0f5;
+  --tx-sidebar: #ffffff;
+  --tx-surface: #ffffff;
+  --tx-surface-2: #f9f9fc;
+  --tx-surface-3: #f0f1f6;
+  --tx-hover: rgba(126, 32, 255, .07);
+  --tx-active: rgba(126, 32, 255, .12);
+  --tx-text: #17141c;
+  --tx-text-2: #555968;
+  --tx-text-3: #818695;
+  --tx-border: rgba(24,17,35,.09);
+  --tx-border-strong: rgba(24,17,35,.15);
+  --tx-input: #ffffff;
+  --tx-shadow: 0 12px 34px rgba(24,17,35,.08);
+  --tx-shadow-sm: 0 5px 18px rgba(24,17,35,.06);
+  --tx-overlay: rgba(26,22,31,.34);
+  color-scheme: light;
+}
+
+/* Auto / system mode fallback */
+@media (prefers-color-scheme: light) {
+  html.taxios-theme[data-taxios-mode="auto"] {
+    --tx-bg: #f5f6fa;
+    --tx-bg-soft: #eef0f5;
+    --tx-sidebar: #ffffff;
+    --tx-surface: #ffffff;
+    --tx-surface-2: #f9f9fc;
+    --tx-surface-3: #f0f1f6;
+    --tx-hover: rgba(126, 32, 255, .07);
+    --tx-active: rgba(126, 32, 255, .12);
+    --tx-text: #17141c;
+    --tx-text-2: #555968;
+    --tx-text-3: #818695;
+    --tx-border: rgba(24,17,35,.09);
+    --tx-border-strong: rgba(24,17,35,.15);
+    --tx-input: #ffffff;
+    --tx-shadow: 0 12px 34px rgba(24,17,35,.08);
+    --tx-shadow-sm: 0 5px 18px rgba(24,17,35,.06);
+    --tx-overlay: rgba(26,22,31,.34);
+    color-scheme: light;
+  }
+}
+
+/* -------------------------------------------------------
+   GLOBAL
+-------------------------------------------------------- */
+html.taxios-theme,
+html.taxios-theme body {
+  background: var(--tx-bg) !important;
+  color: var(--tx-text) !important;
+  font-family: var(--tx-font) !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.taxios-theme body {
+  min-height: 100vh;
+}
+
+html.taxios-theme *,
+html.taxios-theme *::before,
+html.taxios-theme *::after {
+  box-sizing: border-box;
+}
+
+/* Remove common unwanted top decorative strips */
+html.taxios-theme body::before,
+html.taxios-theme #app::before,
+html.taxios-theme .app::before,
+html.taxios-theme .main-wrapper::before,
+html.taxios-theme .page-wrapper::before {
+  border-top: 0 !important;
+}
+
+html.taxios-theme h1,
+html.taxios-theme h2,
+html.taxios-theme h3,
+html.taxios-theme h4,
+html.taxios-theme h5,
+html.taxios-theme h6,
+html.taxios-theme .page-title,
+html.taxios-theme .card-title,
+html.taxios-theme .panel-title {
+  color: var(--tx-text) !important;
+  font-family: var(--tx-font) !important;
+  font-weight: 760 !important;
+  letter-spacing: -.02em;
+}
+
+html.taxios-theme p,
+html.taxios-theme .text-muted,
+html.taxios-theme small,
+html.taxios-theme .help-block,
+html.taxios-theme .form-text {
+  color: var(--tx-text-2) !important;
+}
+
+html.taxios-theme a {
+  color: var(--tx-purple) !important;
+  text-decoration-color: color-mix(in srgb, var(--tx-purple) 38%, transparent) !important;
+  text-underline-offset: 3px;
+  transition: color var(--tx-fast) var(--tx-ease), opacity var(--tx-fast) var(--tx-ease);
+}
+
+html.taxios-theme a:hover {
+  color: var(--tx-orange) !important;
+}
+
+html.taxios-theme hr {
+  border: 0 !important;
+  border-top: 1px solid var(--tx-border) !important;
+  opacity: 1 !important;
+}
+
+html.taxios-theme ::selection {
+  background: rgba(165, 28, 255, .28);
+  color: var(--tx-text);
+}
+
+html.taxios-theme :focus-visible {
+  outline: none !important;
+  box-shadow: var(--tx-focus) !important;
+}
+
+/* -------------------------------------------------------
+   APP SHELL / CONTENT
+-------------------------------------------------------- */
+html.taxios-theme #app,
+html.taxios-theme .app,
+html.taxios-theme .app-content,
+html.taxios-theme .main,
+html.taxios-theme main,
+html.taxios-theme .main-content,
+html.taxios-theme .content,
+html.taxios-theme .content-wrapper,
+html.taxios-theme .page-wrapper,
+html.taxios-theme .page-content,
+html.taxios-theme .dashboard-content {
+  background: var(--tx-bg) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .container,
+html.taxios-theme .container-fluid {
+  color: var(--tx-text) !important;
+}
+
+/* -------------------------------------------------------
+   SIDEBAR / NAVIGATION
+-------------------------------------------------------- */
+html.taxios-theme aside,
+html.taxios-theme .sidebar,
+html.taxios-theme .side-bar,
+html.taxios-theme .sidebar-wrapper,
+html.taxios-theme .left-sidebar,
+html.taxios-theme .main-sidebar,
+html.taxios-theme .menu-sidebar,
+html.taxios-theme .navigation,
+html.taxios-theme .nav-sidebar {
+  background: var(--tx-sidebar) !important;
+  color: var(--tx-text) !important;
+  border-color: var(--tx-border) !important;
+  box-shadow: none !important;
+}
+
+html.taxios-theme .sidebar,
+html.taxios-theme .left-sidebar,
+html.taxios-theme .main-sidebar {
+  border-right: 1px solid rgba(165, 28, 255, .26) !important;
+}
+
+html.taxios-theme .sidebar a,
+html.taxios-theme .side-bar a,
+html.taxios-theme .main-sidebar a,
+html.taxios-theme .nav-sidebar a,
+html.taxios-theme .navigation a,
+html.taxios-theme .navbar-nav .nav-link,
+html.taxios-theme .menu-item > a {
+  color: var(--tx-text-2) !important;
+  border-radius: var(--tx-radius-sm) !important;
+  transition: background var(--tx-fast) var(--tx-ease), color var(--tx-fast) var(--tx-ease), transform var(--tx-fast) var(--tx-ease) !important;
+}
+
+html.taxios-theme .sidebar a:hover,
+html.taxios-theme .side-bar a:hover,
+html.taxios-theme .main-sidebar a:hover,
+html.taxios-theme .nav-sidebar a:hover,
+html.taxios-theme .navigation a:hover,
+html.taxios-theme .navbar-nav .nav-link:hover,
+html.taxios-theme .menu-item > a:hover {
+  background: var(--tx-hover) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .sidebar .active > a,
+html.taxios-theme .side-bar .active > a,
+html.taxios-theme .main-sidebar .active > a,
+html.taxios-theme .nav-sidebar .active > a,
+html.taxios-theme .navigation .active > a,
+html.taxios-theme .navbar-nav .nav-link.active,
+html.taxios-theme .menu-item.active > a,
+html.taxios-theme a.active.nav-link {
+  background: var(--tx-active) !important;
+  color: var(--tx-text) !important;
+  box-shadow: inset 3px 0 0 var(--tx-purple) !important;
+}
+
+html.taxios-theme .sidebar i,
+html.taxios-theme .sidebar svg,
+html.taxios-theme .navigation i,
+html.taxios-theme .navigation svg,
+html.taxios-theme .menu-item i,
+html.taxios-theme .menu-item svg {
+  color: currentColor !important;
+  fill: currentColor;
+}
+
+/* -------------------------------------------------------
+   TOPBAR / HEADER
+-------------------------------------------------------- */
+html.taxios-theme header,
+html.taxios-theme .header,
+html.taxios-theme .topbar,
+html.taxios-theme .top-bar,
+html.taxios-theme .navbar,
+html.taxios-theme .app-header,
+html.taxios-theme .main-header {
+  background: color-mix(in srgb, var(--tx-bg) 88%, transparent) !important;
+  border-color: var(--tx-border) !important;
+  color: var(--tx-text) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+html.taxios-theme .breadcrumb,
+html.taxios-theme .breadcrumbs {
+  background: transparent !important;
+  color: var(--tx-text-3) !important;
+}
+
+html.taxios-theme .breadcrumb-item,
+html.taxios-theme .breadcrumb-item a {
+  color: var(--tx-text-3) !important;
+}
+
+html.taxios-theme .breadcrumb-item.active {
+  color: var(--tx-text-2) !important;
+}
+
+/* -------------------------------------------------------
+   CARDS / PANELS / BLOCKS
+-------------------------------------------------------- */
+html.taxios-theme :where(
+  .card,
+  .panel,
+  .widget,
+  .box,
+  .portlet,
+  .tile,
+  .module,
+  .dashboard-block,
+  .portal-block,
+  .block-wrapper,
+  .content-block,
+  .project-card,
+  .invoice-card,
+  .task-card,
+  .announcement-card
+) {
+  background: var(--tx-surface) !important;
+  color: var(--tx-text) !important;
+  border: 1px solid var(--tx-border) !important;
+  border-radius: var(--tx-radius-md) !important;
+  box-shadow: var(--tx-shadow-sm) !important;
+}
+
+html.taxios-theme :where(.card, .panel, .widget, .box, .portlet, .tile):hover {
+  border-color: var(--tx-border-strong) !important;
+}
+
+html.taxios-theme :where(
+  .card-header,
+  .panel-heading,
+  .panel-header,
+  .box-header,
+  .widget-header,
+  .modal-header,
+  .drawer-header
+) {
+  background: transparent !important;
+  color: var(--tx-text) !important;
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme :where(
+  .card-footer,
+  .panel-footer,
+  .box-footer,
+  .modal-footer,
+  .drawer-footer
+) {
+  background: transparent !important;
+  border-color: var(--tx-border) !important;
+}
+
+/* subtle branded featured surface */
+html.taxios-theme .taxios-featured,
+html.taxios-theme [data-taxios-featured="true"] {
+  background:
+    radial-gradient(circle at 96% 6%, rgba(255,106,0,.10), transparent 30%),
+    radial-gradient(circle at 8% 0%, rgba(165,28,255,.13), transparent 34%),
+    var(--tx-surface) !important;
+}
+
+/* -------------------------------------------------------
+   BUTTONS
+-------------------------------------------------------- */
+html.taxios-theme .btn,
+html.taxios-theme button,
+html.taxios-theme input[type="button"],
+html.taxios-theme input[type="submit"],
+html.taxios-theme input[type="reset"],
+html.taxios-theme [role="button"] {
+  border-radius: var(--tx-radius-sm) !important;
+  font-family: var(--tx-font) !important;
+  font-weight: 650 !important;
+  transition: transform var(--tx-fast) var(--tx-ease), box-shadow var(--tx-fast) var(--tx-ease), background var(--tx-fast) var(--tx-ease), border-color var(--tx-fast) var(--tx-ease) !important;
+}
+
+html.taxios-theme .btn:hover,
+html.taxios-theme button:hover,
+html.taxios-theme input[type="button"]:hover,
+html.taxios-theme input[type="submit"]:hover,
+html.taxios-theme [role="button"]:hover {
+  transform: translateY(-1px);
+}
+
+html.taxios-theme :where(
+  .btn-primary,
+  .btn-success,
+  .btn-info,
+  button[type="submit"],
+  input[type="submit"]
+) {
+  background: linear-gradient(135deg, var(--tx-purple), #bc1ff0) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 7px 18px rgba(165,28,255,.18) !important;
+}
+
+html.taxios-theme :where(
+  .btn-primary,
+  .btn-success,
+  .btn-info,
+  button[type="submit"],
+  input[type="submit"]
+):hover {
+  background: linear-gradient(135deg, #b129ff, var(--tx-purple)) !important;
+  box-shadow: 0 9px 22px rgba(165,28,255,.24) !important;
+}
+
+html.taxios-theme :where(.btn-secondary, .btn-default, .btn-light, .btn-outline-secondary) {
+  background: var(--tx-surface-2) !important;
+  border: 1px solid var(--tx-border-strong) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme :where(.btn-secondary, .btn-default, .btn-light, .btn-outline-secondary):hover {
+  background: var(--tx-surface-3) !important;
+}
+
+html.taxios-theme .btn-danger {
+  background: #d84a59 !important;
+  border-color: #d84a59 !important;
+  color: #fff !important;
+}
+
+html.taxios-theme .btn-warning {
+  background: var(--tx-orange) !important;
+  border-color: var(--tx-orange) !important;
+  color: #fff !important;
+}
+
+html.taxios-theme .btn-link {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--tx-purple) !important;
+  box-shadow: none !important;
+}
+
+html.taxios-theme .btn-group > .btn,
+html.taxios-theme .input-group > .btn {
+  border-radius: var(--tx-radius-sm) !important;
+}
+
+/* -------------------------------------------------------
+   FORMS / INPUTS
+-------------------------------------------------------- */
+html.taxios-theme label,
+html.taxios-theme .form-label,
+html.taxios-theme .control-label {
+  color: var(--tx-text-2) !important;
+  font-weight: 600 !important;
+}
+
+html.taxios-theme :where(
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  textarea,
+  .form-control,
+  .form-select,
+  .custom-select,
+  .select2-selection,
+  .ts-control
+) {
+  background: var(--tx-input) !important;
+  color: var(--tx-text) !important;
+  border: 1px solid var(--tx-border-strong) !important;
+  border-radius: var(--tx-radius-sm) !important;
+  box-shadow: none !important;
+  min-height: 42px;
+}
+
+html.taxios-theme textarea,
+html.taxios-theme textarea.form-control {
+  min-height: 110px;
+}
+
+html.taxios-theme :where(
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  select,
+  textarea,
+  .form-control,
+  .form-select,
+  .custom-select,
+  .select2-selection,
+  .ts-control
+):focus {
+  border-color: color-mix(in srgb, var(--tx-purple) 68%, var(--tx-border-strong)) !important;
+  box-shadow: var(--tx-focus) !important;
+}
+
+html.taxios-theme input::placeholder,
+html.taxios-theme textarea::placeholder {
+  color: var(--tx-text-3) !important;
+  opacity: 1;
+}
+
+html.taxios-theme .input-group-text,
+html.taxios-theme .input-group-addon {
+  background: var(--tx-surface-3) !important;
+  color: var(--tx-text-2) !important;
+  border-color: var(--tx-border-strong) !important;
+}
+
+html.taxios-theme input[type="checkbox"],
+html.taxios-theme input[type="radio"] {
+  accent-color: var(--tx-purple);
+}
+
+html.taxios-theme .form-check-input:checked {
+  background-color: var(--tx-purple) !important;
+  border-color: var(--tx-purple) !important;
+}
+
+html.taxios-theme .switch input:checked + .slider,
+html.taxios-theme .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background: var(--tx-purple) !important;
+  border-color: var(--tx-purple) !important;
+}
+
+/* -------------------------------------------------------
+   TABLES / LISTS
+-------------------------------------------------------- */
+html.taxios-theme table,
+html.taxios-theme .table {
+  color: var(--tx-text) !important;
+  background: transparent !important;
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme table thead th,
+html.taxios-theme .table thead th,
+html.taxios-theme .table th {
+  background: color-mix(in srgb, var(--tx-purple) 10%, var(--tx-surface)) !important;
+  color: var(--tx-text) !important;
+  border-color: var(--tx-border) !important;
+  font-weight: 700 !important;
+}
+
+html.taxios-theme table td,
+html.taxios-theme .table td {
+  color: var(--tx-text-2) !important;
+  border-color: var(--tx-border) !important;
+  background: transparent !important;
+}
+
+html.taxios-theme .table-striped tbody tr:nth-of-type(odd) > * {
+  background: rgba(127,32,255,.035) !important;
+}
+
+html.taxios-theme .table-hover tbody tr:hover > * {
+  background: var(--tx-hover) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .list-group,
+html.taxios-theme .list-group-item {
+  background: var(--tx-surface) !important;
+  color: var(--tx-text-2) !important;
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme .list-group-item.active {
+  background: var(--tx-active) !important;
+  color: var(--tx-text) !important;
+  border-color: rgba(165,28,255,.34) !important;
+}
+
+/* -------------------------------------------------------
+   BADGES / ALERTS / STATUS
+-------------------------------------------------------- */
+html.taxios-theme .badge,
+html.taxios-theme .label,
+html.taxios-theme .status-badge,
+html.taxios-theme .tag,
+html.taxios-theme .chip {
+  border-radius: 999px !important;
+  font-weight: 650 !important;
+}
+
+html.taxios-theme .badge-primary,
+html.taxios-theme .bg-primary,
+html.taxios-theme .label-primary {
+  background: var(--tx-purple) !important;
+  color: #fff !important;
+}
+
+html.taxios-theme .alert {
+  border-radius: var(--tx-radius-md) !important;
+  border: 1px solid var(--tx-border-strong) !important;
+  background: var(--tx-surface) !important;
+  color: var(--tx-text-2) !important;
+}
+
+html.taxios-theme .alert-info {
+  border-left: 3px solid var(--tx-purple) !important;
+}
+
+html.taxios-theme .alert-warning {
+  border-left: 3px solid var(--tx-orange) !important;
+}
+
+/* -------------------------------------------------------
+   TABS / PILLS / PAGINATION
+-------------------------------------------------------- */
+html.taxios-theme .nav-tabs,
+html.taxios-theme .nav-pills {
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme .nav-tabs .nav-link,
+html.taxios-theme .nav-pills .nav-link {
+  color: var(--tx-text-2) !important;
+  border-radius: var(--tx-radius-sm) !important;
+  border-color: transparent !important;
+}
+
+html.taxios-theme .nav-tabs .nav-link:hover,
+html.taxios-theme .nav-pills .nav-link:hover {
+  background: var(--tx-hover) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .nav-tabs .nav-link.active,
+html.taxios-theme .nav-pills .nav-link.active {
+  background: var(--tx-active) !important;
+  color: var(--tx-text) !important;
+  border-color: rgba(165,28,255,.28) !important;
+}
+
+html.taxios-theme .pagination .page-link {
+  background: var(--tx-surface) !important;
+  border-color: var(--tx-border) !important;
+  color: var(--tx-text-2) !important;
+}
+
+html.taxios-theme .pagination .page-item.active .page-link {
+  background: var(--tx-purple) !important;
+  border-color: var(--tx-purple) !important;
+  color: #fff !important;
+}
+
+/* -------------------------------------------------------
+   MODALS / DROPDOWNS / POPOVERS
+-------------------------------------------------------- */
+html.taxios-theme .modal-content,
+html.taxios-theme .dropdown-menu,
+html.taxios-theme .popover,
+html.taxios-theme .offcanvas,
+html.taxios-theme .drawer,
+html.taxios-theme .menu-dropdown,
+html.taxios-theme .select2-dropdown,
+html.taxios-theme .ts-dropdown {
+  background: var(--tx-surface) !important;
+  color: var(--tx-text) !important;
+  border: 1px solid var(--tx-border-strong) !important;
+  border-radius: var(--tx-radius-md) !important;
+  box-shadow: var(--tx-shadow) !important;
+}
+
+html.taxios-theme .dropdown-item,
+html.taxios-theme .select2-results__option,
+html.taxios-theme .ts-dropdown .option {
+  color: var(--tx-text-2) !important;
+  border-radius: var(--tx-radius-xs) !important;
+}
+
+html.taxios-theme .dropdown-item:hover,
+html.taxios-theme .dropdown-item:focus,
+html.taxios-theme .select2-results__option--highlighted,
+html.taxios-theme .ts-dropdown .active {
+  background: var(--tx-hover) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .modal-backdrop.show,
+html.taxios-theme .offcanvas-backdrop.show {
+  background: var(--tx-overlay) !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(3px);
+}
+
+html.taxios-theme .close,
+html.taxios-theme .btn-close {
+  color: var(--tx-text) !important;
+  opacity: .72;
+}
+
+/* -------------------------------------------------------
+   PROGRESS / UPLOAD / EMPTY STATES
+-------------------------------------------------------- */
+html.taxios-theme .progress {
+  height: 10px !important;
+  background: var(--tx-surface-3) !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+}
+
+html.taxios-theme .progress-bar {
+  background: var(--tx-gradient) !important;
+  border-radius: 999px !important;
+}
+
+html.taxios-theme :where(
+  .dropzone,
+  .file-upload,
+  .upload-zone,
+  .upload-area,
+  .dz-message
+) {
+  background: color-mix(in srgb, var(--tx-purple) 5%, var(--tx-surface)) !important;
+  border: 1px dashed rgba(165,28,255,.42) !important;
+  border-radius: var(--tx-radius-md) !important;
+  color: var(--tx-text-2) !important;
+}
+
+/* -------------------------------------------------------
+   CALENDAR / TASK / PROJECT COMMON UI
+-------------------------------------------------------- */
+html.taxios-theme .fc,
+html.taxios-theme .fc-theme-standard,
+html.taxios-theme .calendar,
+html.taxios-theme .calendar-wrapper {
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .fc-theme-standard td,
+html.taxios-theme .fc-theme-standard th,
+html.taxios-theme .fc-scrollgrid {
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme .fc-col-header-cell,
+html.taxios-theme .fc-daygrid-day {
+  background: var(--tx-surface) !important;
+}
+
+html.taxios-theme .fc-day-today {
+  background: color-mix(in srgb, var(--tx-purple) 8%, var(--tx-surface)) !important;
+}
+
+html.taxios-theme .fc-button-primary {
+  background: var(--tx-surface-2) !important;
+  border-color: var(--tx-border-strong) !important;
+  color: var(--tx-text) !important;
+}
+
+html.taxios-theme .kanban-board,
+html.taxios-theme .kanban-column,
+html.taxios-theme .task-column,
+html.taxios-theme .pipeline-column {
+  background: var(--tx-bg-soft) !important;
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme .kanban-item,
+html.taxios-theme .task-item,
+html.taxios-theme .pipeline-card {
+  background: var(--tx-surface) !important;
+  color: var(--tx-text) !important;
+  border: 1px solid var(--tx-border) !important;
+  border-radius: var(--tx-radius-sm) !important;
+}
+
+/* -------------------------------------------------------
+   EMBEDS / IMAGES / VIDEO
+-------------------------------------------------------- */
+html.taxios-theme iframe,
+html.taxios-theme video,
+html.taxios-theme .embed-responsive,
+html.taxios-theme .ratio {
+  border-radius: var(--tx-radius-md) !important;
+  border-color: var(--tx-border) !important;
+}
+
+html.taxios-theme img {
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------
+   SCROLLBARS
+-------------------------------------------------------- */
+html.taxios-theme * {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--tx-purple) 48%, var(--tx-surface-3)) var(--tx-bg-soft);
+}
+
+html.taxios-theme *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.taxios-theme *::-webkit-scrollbar-track {
+  background: var(--tx-bg-soft);
+}
+
+html.taxios-theme *::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--tx-purple) 45%, var(--tx-surface-3));
+  border-radius: 999px;
+  border: 2px solid var(--tx-bg-soft);
+}
+
+/* -------------------------------------------------------
+   OPTIONAL CUSTOM CLASSES FOR SUITEDASH BLOCK EDITOR
+-------------------------------------------------------- */
+html.taxios-theme .tx-block,
+html.taxios-theme .taxios-block {
+  background: var(--tx-surface) !important;
+  border: 1px solid var(--tx-border) !important;
+  border-radius: var(--tx-radius-md) !important;
+  box-shadow: var(--tx-shadow-sm) !important;
+  padding: 18px !important;
+}
+
+html.taxios-theme .tx-block--purple {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(165,28,255,.16), transparent 38%),
+    var(--tx-surface) !important;
+}
+
+html.taxios-theme .tx-block--orange {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255,106,0,.12), transparent 38%),
+    var(--tx-surface) !important;
+}
+
+html.taxios-theme .tx-gradient-text {
+  background: var(--tx-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+html.taxios-theme .tx-gradient-button {
+  background: var(--tx-gradient) !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+
+/* -------------------------------------------------------
+   MOBILE / TABLET
+-------------------------------------------------------- */
+@media (max-width: 1024px) {
+  html.taxios-theme :where(.card, .panel, .widget, .box, .portlet, .tile) {
+    border-radius: 12px !important;
+  }
+
+  html.taxios-theme .container,
+  html.taxios-theme .container-fluid {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html.taxios-theme body {
+    font-size: 14px !important;
+  }
+
+  html.taxios-theme h1 { font-size: clamp(1.55rem, 7vw, 2rem) !important; }
+  html.taxios-theme h2 { font-size: clamp(1.3rem, 6vw, 1.7rem) !important; }
+  html.taxios-theme h3 { font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
+
+  html.taxios-theme :where(.card, .panel, .widget, .box, .portlet, .tile) {
+    box-shadow: none !important;
+  }
+
+  html.taxios-theme .modal-dialog {
+    margin: 10px !important;
+  }
+
+  html.taxios-theme .modal-content {
+    border-radius: 14px !important;
+  }
+
+  html.taxios-theme .table-responsive {
+    border: 1px solid var(--tx-border) !important;
+    border-radius: 12px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html.taxios-theme .btn,
+  html.taxios-theme button,
+  html.taxios-theme input[type="button"],
+  html.taxios-theme input[type="submit"] {
+    min-height: 42px;
+  }
+
+  html.taxios-theme :where(
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    select,
+    textarea,
+    .form-control,
+    .form-select
+  ) {
+    font-size: 16px !important; /* prevents iOS form zoom */
+  }
+
+  html.taxios-theme .sidebar,
+  html.taxios-theme .left-sidebar,
+  html.taxios-theme .main-sidebar {
+    border-right-color: var(--tx-border) !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html.taxios-theme *,
+  html.taxios-theme *::before,
+  html.taxios-theme *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
